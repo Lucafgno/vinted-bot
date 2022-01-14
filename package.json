@@ -8,7 +8,7 @@
     "node": "16.13.2"
   },
   "scripts": {
-    "start": "tsc && node create-db.js && node create-cmds && node dist/index.js",
+    "start": "node create-db.js && node create-cmds && node dist/index.js",
     "build": "tsc"
   },
   "dependencies": {
