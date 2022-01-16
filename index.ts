@@ -84,12 +84,12 @@ const syncSubscription = (subscriptionData: Subscription) => {
             .setImage(item.photos[0]?.url)
             .setColor("#09B1BA")
             .setTimestamp(new Date(item.created_at_ts))
-            .setFooter(`Article lié à la recherche : ${subscriptionData.id}`)
-            .addField("Prix", item.price || "vide", true)
+            .setFooter(`Research related article : ${subscriptionData.id}`)
+            .addField("Price", item.price || "vide", true)
             .addField("Condition", item.status || "vide", true)
-            .addField("Taille", item.size || "vide", true)
+            .addField("Cut", item.size || "vide", true)
             .addField(
-              "Note vendeur",
+              "seller rating",
               `${getReputationStars(item.user.feedback_reputation)} (${
                 (item.user.positive_feedback_count || 0) +
                 (item.user.neutral_feedback_count || 0) +
@@ -98,7 +98,7 @@ const syncSubscription = (subscriptionData: Subscription) => {
               true
             )
             .addField(
-              "Pays & Ville",
+              "Country and City",
               `:flag_${item.user.country_iso_code.toLowerCase()}: ${
                 item.city
               }` || "vide",
