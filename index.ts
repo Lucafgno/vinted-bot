@@ -110,13 +110,13 @@ const syncSubscription = (subscriptionData: Subscription) => {
             embeds: [embed],
             components: [
               new Discord.MessageActionRow().addComponents([
+                // new Discord.MessageButton()
+                //   .setLabel("Details")
+                //   .setURL(item.url)
+                //   .setEmoji("🔎")
+                //   .setStyle("LINK"),
                 new Discord.MessageButton()
-                  .setLabel("Details")
-                  .setURL(item.url)
-                  .setEmoji("🔎")
-                  .setStyle("LINK"),
-                new Discord.MessageButton()
-                  .setLabel("Purchase")
+                  .setLabel("Purchase Now")
                   .setURL(
                     `https://www.vinted.fr/transaction/buy/new?source_screen=item&transaction%5Bitem_id%5D=${item.id}`
                   )
@@ -208,7 +208,7 @@ client.on("interactionCreate", async (interaction) => {
       };
       getConnection().manager.getRepository(Subscription).save(sub);
       interaction.reply(
-        `:white_check_mark: Votre abonnement a été créé avec succès !\n**URL**: <${sub.url}>\n**Salon**: <#${sub.channelId}>`
+        `:white_check_mark: Your subscription has been successfully created !\n**URL**: <${sub.url}>\n**Salon**: <#${sub.channelId}>`
       );
       break;
     }
@@ -238,7 +238,7 @@ client.on("interactionCreate", async (interaction) => {
       );
       break;
     }
-    case "abonnements": {
+    case "subscriptions": {
       const subscriptions = await getConnection()
         .manager.getRepository(Subscription)
         .find({
