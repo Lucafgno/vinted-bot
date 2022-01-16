@@ -110,11 +110,11 @@ const syncSubscription = (subscriptionData: Subscription) => {
             embeds: [embed],
             components: [
               new Discord.MessageActionRow().addComponents([
-                // new Discord.MessageButton()
-                //   .setLabel("Details")
-                //   .setURL(item.url)
-                //   .setEmoji("🔎")
-                //   .setStyle("LINK"),
+                new Discord.MessageButton()
+                  .setLabel("Details")
+                  .setURL(item.url)
+                  .setEmoji("🔎")
+                  .setStyle("LINK"),
                 new Discord.MessageButton()
                   .setLabel("Purchase Now")
                   .setURL(
