@@ -11,12 +11,19 @@ import {
 export const initialize = () =>
   createConnection({
     type: "postgres",
+    // url: process.env.DATABASE_URl,
     host: process.env.POSTGRES_HOST,
     database: process.env.POSTGRES_DB,
     username: process.env.POSTGRES_USER,
     password: process.env.POSTGRES_PASSWORD,
     entities: [Subscription],
     synchronize: true,
+    ssl: true,
+    extra: {
+      ssl: {
+        rejectUnauthorized: false,
+      },
+    },
   });
 
 @Entity()
