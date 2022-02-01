@@ -150,7 +150,7 @@ const sync = async () => {
 
   setTimeout(() => {
     lastFetchFinished = true;
-  }, 5000);
+  }, 20_000);
 
   console.log(`🤖 Synced to Vinted...\n`);
 
@@ -179,14 +179,14 @@ client.on("ready", () => {
   const donate = () => console.log(messages[idx % 2]);
   setTimeout(() => {
     donate();
-  }, 30000);
+  }, 30_000);
   setInterval(() => {
     idx++;
     donate();
   }, 120_000);
 
   sync();
-  setInterval(sync, 15000);
+  setInterval(sync, 15_000);
 
   client.user!.setActivity(`Vinted BOT | v3 Docker 🐳`);
 });
