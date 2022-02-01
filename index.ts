@@ -211,6 +211,7 @@ client.on("interactionCreate", async (interaction) => {
         interaction.reply(`please remove search_text`);
         break;
       } else {
+        sub.url = sub.url?.replaceAll(" ", "").replaceAll(`\n`, "");
         getConnection().manager.getRepository(Subscription).save(sub);
         interaction.reply(
           `:white_check_mark: Your subscription hass been successfully created !\n**URL**: <${sub.url}>\n**Salon**: <#${sub.channelId}>`
