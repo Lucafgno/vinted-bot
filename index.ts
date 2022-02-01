@@ -186,7 +186,7 @@ client.on("ready", () => {
   }, 120_000);
 
   sync();
-  setInterval(sync, 10000);
+  setInterval(sync, 15000);
 
   client.user!.setActivity(`Vinted BOT | v3 Docker 🐳`);
 });
