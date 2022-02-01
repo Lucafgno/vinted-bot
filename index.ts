@@ -179,14 +179,14 @@ client.on("ready", () => {
   const donate = () => console.log(messages[idx % 2]);
   setTimeout(() => {
     donate();
-  }, 3000);
+  }, 30000);
   setInterval(() => {
     idx++;
     donate();
   }, 120_000);
 
   sync();
-  setInterval(sync, 5000);
+  setInterval(sync, 10000);
 
   client.user!.setActivity(`Vinted BOT | v3 Docker 🐳`);
 });
