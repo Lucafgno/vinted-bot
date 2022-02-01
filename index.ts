@@ -206,11 +206,17 @@ client.on("interactionCreate", async (interaction) => {
         createdAt: new Date(),
         isActive: true,
       };
-      getConnection().manager.getRepository(Subscription).save(sub);
-      interaction.reply(
-        `:white_check_mark: Your subscription has been successfully created !\n**URL**: <${sub.url}>\n**Salon**: <#${sub.channelId}>`
-      );
-      break;
+      if (sub.url?.includes("'search_text.....&'")) {
+        console.log("please remove search_text");
+        interaction.reply(`please remove search_text`);
+        break;
+      } else {
+        getConnection().manager.getRepository(Subscription).save(sub);
+        interaction.reply(
+          `:white_check_mark: Your subscription hass been successfully created !\n**URL**: <${sub.url}>\n**Salon**: <#${sub.channelId}>`
+        );
+        break;
+      }
     }
     case "unsubscribe": {
       const subID = interaction.options.getString("id")!;
